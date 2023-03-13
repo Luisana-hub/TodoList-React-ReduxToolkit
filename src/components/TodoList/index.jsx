@@ -44,6 +44,7 @@ const TodoList = () => {
         {(initialTodo.todoList.length===0) ? (<p>Looks like you&apos;re absolutely free today!</p>): null}
       </div>
     </div>
+    
   );
 };
 

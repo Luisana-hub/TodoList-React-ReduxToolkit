@@ -1,6 +1,7 @@
 import { useState } from "react";
+import "./style.css";
 import {useDispatch} from 'react-redux';
-import { addTodos } from "redux/todoSlice";
+import { addTodos, postTodosAction } from "redux/todoSlice";
 
 const TodoForm = () => {
     const [newTodo, setTodo] = useState ({
@@ -15,20 +16,25 @@ const TodoForm = () => {
     }; 
 
     const dispatch = useDispatch()
-
+// uso de las acciones para agregar todo y post a la api
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(addTodos({
             id: new Date().getTime(),
             ...newTodo
         }));
+        dispatch(postTodosAction());
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input name="label" type="text" placeholder="Enter now to do" onChange={handleChange} />
-            <button>ADD TO DO</button>
-        </form>
+        <div className="form">
+            <form className="form-content" onSubmit={handleSubmit}>
+                <input name="label" type="text" placeholder="Enter new to do" onChange={handleChange} />
+                <button className="buttom-form" >ADD TO DO</button>
+            </form>
+            
+        </div>
+        
     )
 };
 
