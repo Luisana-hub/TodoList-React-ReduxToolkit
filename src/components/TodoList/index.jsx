@@ -14,7 +14,6 @@ const TodoList = () => {
       dispatch(getTodosAction())
  }, [dispatch])
 
-
   const handleDelete = (todoId) => {
     // Fix an ability to delete task
     dispatch(deleteTodo(todoId))
@@ -42,7 +41,7 @@ const TodoList = () => {
         </div>
       </div>
       <div className="no-todos">
-         Looks like you&apos;re absolutely free today!
+        {(initialTodo.todoList.length===0) ? (<p>Looks like you&apos;re absolutely free today!</p>): null}
       </div>
     </div>
   );
