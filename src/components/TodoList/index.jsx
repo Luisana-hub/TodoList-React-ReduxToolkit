@@ -28,21 +28,21 @@ const TodoList = () => {
     <div className="todo-list">
       <span className="todo-list-title">Things to do:</span>
       <div className="todo-list-content">
-        <ul >
+        <div >
           {initialTodo.todoList.map((item)=>(
-            <li key={item.id}>
+            <div key={item.id}>
               <div >
                 <TodoListItem 
                   label={item.label} 
                   onDelete={() => handleDelete(item.id)} 
                   />
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
       <div className="no-todos">
-        Looks like you&apos;re absolutely free today!
+         Looks like you&apos;re absolutely free today!
       </div>
     </div>
   );
