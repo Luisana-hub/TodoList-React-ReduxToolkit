@@ -27,10 +27,10 @@ const TodoForm = () => {
     };
 
     return (
-        <div className="form">
+        <div className="form-group">
             <form className="form-content" onSubmit={handleSubmit}>
-                <input name="label" type="text" placeholder="Enter new to do" onChange={handleChange} />
-                <button className="buttom-form" >ADD TO DO</button>
+                <input className="form-control" name="label" type="text" placeholder="Enter new to do" onChange={handleChange} />
+                <button className="buttom-form btn btn-primary" >ADD TO DO</button>
             </form>
             
         </div>
