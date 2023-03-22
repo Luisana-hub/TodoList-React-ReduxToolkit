@@ -21,9 +21,12 @@ export const todoSlice = createSlice({
       }
     },
 
-    //toggleCheckAction: (state, action) => {
-      
-   //},
+    toggleCheckAction: (state, action) => {
+      const todoCheck = state.todoList.findIndex(item => item.id === action.payload)
+      if (todoCheck >= 0) {
+       state.todoList[todoCheck].checked = !state.todoList[todoCheck].checked
+      }
+   },
 
     setTodoList: (state, action) =>{
       state.todoList= action.payload
@@ -58,5 +61,5 @@ export const postTodosAction = (state) => () => {
           ); 
 }
 
-export const {addTodos, deleteTodo} = todoSlice.actions
+export const {addTodos, deleteTodo, toggleCheckAction} = todoSlice.actions
 export default todoSlice.reducer

@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import "./styles.css";
 import TodoListItem from "components/TodoListItem";
 import {useSelector, useDispatch} from 'react-redux'; 
-import { deleteTodo, getTodosAction } from "redux/todoSlice";
+import { deleteTodo, getTodosAction, toggleCheckAction } from "redux/todoSlice";
 
 const TodoList = () => {
   
@@ -21,6 +21,8 @@ const TodoList = () => {
 
   const toggleCheck = (todoId, isChecked) => {
     // Fix an ability to toggle task
+    dispatch(toggleCheckAction(todoId, isChecked))
+    console.log("isChecked")
   };
 
   return (
@@ -34,6 +36,8 @@ const TodoList = () => {
                 <TodoListItem 
                   label={item.label} 
                   onDelete={() => handleDelete(item.id)} 
+                  onCheck={() => toggleCheck(item.id, item.checked)}
+                  checked={item.checked}
                   />
               </div>
             </div>
